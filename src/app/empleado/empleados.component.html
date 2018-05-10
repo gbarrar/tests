@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Empleados</title>
+</head>
+<body>
+  <p>{{listado_empleados}}</p>
+  <p>Empleado Estrella: {{empleado.nombre}}</p>
+
+  <p *ngIf="trabajador_externo">
+    {{empleado.nombre}} N1
+  </p>
+
+  <p *ngIf="!trabajador_externo">
+    {{empleado.nombre}} N2
+  </p>
+
+  <button (click)="cambiarExterno(true)">Click</button>
+
+    <ul *ngFor="let trabajador of trabajadores" [ngSwitch]="trabajador.contratado">
+      <li *ngSwitchCase="true">
+        {{trabajador.edad}}
+      </li>
+      <li *ngSwitchCase="false">
+        {{trabajador.edad}}
+      </li>
+      <li *ngSwitchDefault>
+        {{trabajador.nombre}}
+      </li>
+    </ul>
+
+<!-- [()] implica 2way data binding -->
+<h3>Selector de colores</h3>
+  <input type="text" [(ngModel)]="input_value"/>
+  <p>{{input_value}}</p>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{titulo}}</title>
+</head>
+<body>
+  <h1>{{titulo}}</h1>
+
+  <p>{{5 | conversor: 3}}</p>
+
+  <h1>{{fecha | date: "dd/MM/yyyy" | uppercase}}</h1>
+
+  <input placeholder="Input" [(ngModel)]="prenda_a_guardar"/>
+  <button (click)="guardarPrenda(prenda_a_guardar)">Botton</button>
+
+  <ul *ngFor="let prenda of listado_ropa; let i = index">
+    <li>{{prenda}} - {{i}}</li>
+  </ul>
+</body>
+</html>
